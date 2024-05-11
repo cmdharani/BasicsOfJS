@@ -170,3 +170,23 @@ function arrayFromRange(min, max)
 const numberRange=arrayFromRange(-10,5);
 
 console.log(numberRange);
+
+
+//check includes
+
+const numberCheck=[1,2,23,4,5];
+function includesCheck(array,searchElement){
+
+    
+    for (const iterator of array) {
+        if(iterator === searchElement)
+            return true;
+        return false;
+    }
+
+}
+
+console.log(includesCheck(numberCheck,1));
+
+
+
