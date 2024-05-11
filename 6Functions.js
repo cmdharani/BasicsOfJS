@@ -36,7 +36,7 @@ console.log(sayHello('mr','madhu','dharani'));
 
 
 
-//getter and setter
+//getter and setter and Try and Catch
 
 const person={
     firstName:'madhu',
@@ -45,13 +45,37 @@ const person={
         return  `say hello to ${person.firstName} ${person.lastName}`;
     },
     set fullName(value){
-        var parts=value.split(' ');
-        person.firstName=parts[0];
-        person.lastName=parts[1];
+
+        if(typeof value !== 'string')
+            {
+                throw new Error('value is not string');
+            }
+            
+
+        var parts=value.trim().split(' ');
+        if(parts.length !== 2)
+            {
+                throw new Error('Enter First and Last Name');
+            }
+        this.firstName=parts[0];
+        this.lastName=parts[1];
     }
 
 };
 
 console.log(person.fullName);
+try {
+    //person.fullName='Anil kumar';
+    //person.fullName=null;
+    person.fullName=' ';
+    
+} catch (error) 
+{
+    console.error(error.message);
+}
 person.fullName='Anil kumar';
 console.log(person.fullName);
+
+
+
+
